@@ -1,5 +1,4 @@
 from sqlite3 import connect
-
 from adres import Adres
 
 
