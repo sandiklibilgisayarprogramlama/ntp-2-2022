@@ -1,4 +1,3 @@
-from ntpath import join
 from db import Adres, Ogrenci, engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import and_, or_
@@ -71,7 +70,18 @@ for h in fsonuc:
 satir_say = oturum.query(Ogrenci).count()
 print(satir_say)
 
-
 join_sonuc = oturum.query(Ogrenci, Adres).join(Adres)
 for k in join_sonuc:
     print(k[0].ad + " "+k[1].acikadres)
+
+# güncelleme
+gelen = oturum.query(Ogrenci).get(2)
+gelen.soyad = "Kısa"
+gelen.email = "asd@aku.edu.tr"
+oturum.commit()
+
+# silme
+print(oturum.query(Ogrenci).count())
+gelen = oturum.query(Ogrenci).filter(Ogrenci.ad == "Veli").first()
+oturum.delete(gelen)
+print(oturum.query(Ogrenci).count())
