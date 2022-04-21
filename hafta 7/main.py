@@ -20,9 +20,6 @@ class Main(App):
         # Tekrar giriş yapıldığında yazımızı değiştiriyoruz
         self.title = "Programa tekrar hoşgeldiniz"
 
-    def btn_tikla(self):
-        print("btn tıklandı")
-
 
 program = Main()
 program.run()
