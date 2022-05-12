@@ -1,17 +1,30 @@
-<MainLayout>:
-    orientation:"vertical"
+<EkranYoneticisi>:
+    GirisSayfasi:
+    KisiSayfasi:
+
+<KisiSayfasi>:
+    name : "kisisayfasi"
     BoxLayout:
-        orientation:"horizontal"
         Label:
-            text:"Kullanıcı Adı"
-        TextInput:
-            id: kadi
+            text:"Merhaba"
+
+<GirisSayfasi>:
+    name : "girissayfasi"
     BoxLayout:
-        orientation:"horizontal"
-        Label:
-            text:"Şifre"
-        TextInput:
-            id: sifre
-    Button:
-        text:"Giriş Yap"
-        on_press: root.tikla()
+        orientation:"vertical"
+        BoxLayout:
+            orientation:"horizontal"
+            Label:
+                text:"Kullanıcı Adı"
+            TextInput:
+                id: kadi
+        BoxLayout:
+            orientation:"horizontal"
+            Label:
+                text:"Şifre"
+            TextInput:
+                id: sifre
+        Button:
+            text:"Giriş Yap"
+            on_press: root.tikla()
+
