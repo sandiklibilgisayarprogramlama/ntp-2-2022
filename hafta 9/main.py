@@ -1,7 +1,7 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
-
+from kivy.uix.popup import Popup
 from db import Kullanici, engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import and_
@@ -11,12 +11,22 @@ Session = sessionmaker(bind=engine)
 oturum = Session()
 
 
+class Uyari(Popup):
+    pass
+
+
 class EkranYoneticisi(ScreenManager):
     pass
 
 
 class KisiSayfasi(Screen):
-    pass
+
+    def on_enter(self):
+        global kisi_ad
+        self.ids.lblad.text = kisi_ad
+
+    def geri(self):
+        self.parent.current = "girissayfasi"
 
 
 class GirisSayfasi(Screen):
@@ -30,10 +40,13 @@ class GirisSayfasi(Screen):
 
         if (gelenveri):
             print("giriş başarılı")
-            print(gelenveri.ad)
+            global kisi_ad
+            kisi_ad = gelenveri.ad
             self.parent.current = "kisisayfasi"
         else:
             print("giriş başarısız")
+            popup = Uyari()
+            popup.open()
 
 
 class Main(App):

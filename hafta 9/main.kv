@@ -5,8 +5,13 @@
 <KisiSayfasi>:
     name : "kisisayfasi"
     BoxLayout:
+        orientation: "vertical"
         Label:
             text:"Merhaba"
+            id: lblad
+        Button:
+            text: "Geri"
+            on_press: root.geri()
 
 <GirisSayfasi>:
     name : "girissayfasi"
@@ -28,3 +33,12 @@
             text:"Giriş Yap"
             on_press: root.tikla()
 
+<Uyari>:
+    id:popup
+    BoxLayout:
+        orientation : "vertical"
+        Label:
+            text: "Kullanici adı veya şifre yanlış"
+        Button:
+            text: "Kapat"
+            on_press: popup.dismiss()
