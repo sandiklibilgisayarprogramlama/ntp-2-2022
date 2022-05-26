@@ -47,23 +47,40 @@
     name : "girissayfasi"
     BoxLayout:
         orientation:"vertical"
+        AnchorLayout:
+            padding: 20
+            anchor_x:"center"
+            anchor_y:"center"
+            Image:
+                source:"login.png"
+                size:(200,200)
+
         BoxLayout:
-            size_hint:(1,0.2)
+            padding:2
+            size_hint:(1,0.1)
             orientation:"horizontal"
             Label:
                 text:"Kullanıcı Adı"
             TextInput:
                 id: kadi
         BoxLayout:
-            size_hint:(1,0.2)
+            padding:2
+            size_hint:(1,0.1)
             orientation:"horizontal"
             Label:
                 text:"Şifre"
             TextInput:
                 id: sifre
-        Button:
-            text:"Giriş Yap"
-            on_press: root.tikla()
+        BoxLayout:
+            padding:5
+            size_hint:(1,0.1)
+            orientation:"horizontal"
+            Label:
+            Button:
+                background_normal: ''
+                background_color: 1, .3, .4, .85
+                text:"Giriş Yap"
+                on_press: root.tikla()
 
 <Uyari>:
     id:popup
