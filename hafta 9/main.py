@@ -1,3 +1,6 @@
+"""
+    kivy uygulamasını başlatan sınıftır.
+"""
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
@@ -12,21 +15,36 @@ oturum = Session()
 
 
 class Uyari(Popup):
+    """
+        name :
+        params : 
+    """
     pass
 
 
 class EkranYoneticisi(ScreenManager):
+    """
+        Ekranların değişmesi görevini gerçekleştir.
+    """
     pass
 
 
-class KisiSayfasi(Screen):
+class GuncelleSayfasi(Screen):
 
+    def geri(self):
+        self.parent.current = "kisisayfasi"
+
+
+class KisiSayfasi(Screen):
     def on_enter(self):
         global kisi_ad
         self.ids.lblad.text = kisi_ad
 
     def geri(self):
         self.parent.current = "girissayfasi"
+
+    def guncelle(self):
+        self.parent.current = "guncellesayfasi"
 
 
 class GirisSayfasi(Screen):

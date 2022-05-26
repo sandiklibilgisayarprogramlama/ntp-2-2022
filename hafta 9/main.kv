@@ -1,6 +1,8 @@
 <EkranYoneticisi>:
     GirisSayfasi:
     KisiSayfasi:
+    GuncelleSayfasi:
+
 
 <KisiSayfasi>:
     name : "kisisayfasi"
@@ -9,9 +11,26 @@
         Label:
             text:"Merhaba"
             id: lblad
+        BoxLayout:
+            orientation:"horizontal"
+            Button:
+                text: "Geri"
+                on_press: root.geri()
+            Button:
+                text:"Güncelle"
+                on_press:root.guncelle()
+
+<GuncelleSayfasi>:
+    name: "guncellesayfasi"
+    AnchorLayout:
+        anchor_x: 'left'
+        anchor_y: 'bottom'
+
         Button:
-            text: "Geri"
+            size_hint: (0.1,0.1)
+            text:"geri"
             on_press: root.geri()
+
 
 <GirisSayfasi>:
     name : "girissayfasi"
