@@ -30,8 +30,24 @@ class EkranYoneticisi(ScreenManager):
 
 
 class GuncelleSayfasi(Screen):
+    def on_enter(self):
+        global kisi_ad
+        self.ids.kadiguncelle.text = kisi_ad
 
     def geri(self):
+        self.parent.current = "kisisayfasi"
+
+    def guncelle(self):
+        yeni_alan = str(self.ids.kadiguncelle.text).strip()
+
+        global kullanici_adi
+        dbkullanici = oturum.query(Kullanici).filter(
+            Kullanici.kullaniciadi == kullanici_adi).first()
+
+        dbkullanici.ad = yeni_alan
+        oturum.commit()
+        global kisi_ad
+        kisi_ad = yeni_alan
         self.parent.current = "kisisayfasi"
 
 
@@ -60,6 +76,10 @@ class GirisSayfasi(Screen):
             print("giriş başarılı")
             global kisi_ad
             kisi_ad = gelenveri.ad
+
+            global kullanici_adi
+            kullanici_adi = gelenveri.kullaniciadi
+
             self.parent.current = "kisisayfasi"
         else:
             print("giriş başarısız")

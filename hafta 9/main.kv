@@ -22,14 +22,25 @@
 
 <GuncelleSayfasi>:
     name: "guncellesayfasi"
-    AnchorLayout:
-        anchor_x: 'left'
-        anchor_y: 'bottom'
+    BoxLayout:
+        orientation:"vertical"
+        GridLayout:
+            size_hint:(1,0.2)
+            rows:1
+            cols:2
+            TextInput:
+                id:kadiguncelle
+            Button:
+                text:"Güncelle"
+                on_press : root.guncelle()  
+        AnchorLayout:
+            anchor_x: 'left'
+            anchor_y: 'bottom'
 
-        Button:
-            size_hint: (0.1,0.1)
-            text:"geri"
-            on_press: root.geri()
+            Button:
+                size_hint: (0.1,0.1)
+                text:"geri"
+                on_press: root.geri()
 
 
 <GirisSayfasi>:
@@ -37,12 +48,14 @@
     BoxLayout:
         orientation:"vertical"
         BoxLayout:
+            size_hint:(1,0.2)
             orientation:"horizontal"
             Label:
                 text:"Kullanıcı Adı"
             TextInput:
                 id: kadi
         BoxLayout:
+            size_hint:(1,0.2)
             orientation:"horizontal"
             Label:
                 text:"Şifre"
